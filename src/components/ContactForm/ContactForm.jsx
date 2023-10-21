@@ -1,6 +1,5 @@
-
 import { useSelector, useDispatch } from 'react-redux';
-
+import PropTypes from 'prop-types';
 import { selectContactsList } from 'redux/constacts/selectors';
 import { addContact } from 'redux/constacts/operations';
 import { Notify } from 'notiflix';
@@ -67,4 +66,8 @@ export const ContactForm = ({ onCloseModal }) => {
       </Form>
     </FormWrapper>
   );
+};
+
+ContactForm.propTypes = {
+  onCloseModal: PropTypes.func.isRequired,
 };

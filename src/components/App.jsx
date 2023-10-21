@@ -7,9 +7,7 @@ import { refreshUser } from 'redux/auth/operations';
 import Layout from './Layout';
 import PrivateRoute from './PrivateRoute';
 import RestrictedRoute from './RestrictedRoute';
-import { BrowserRouter as Routes, Route } from 'react-router-dom';
-// import { Routes } from 'react-router-dom';
-// import { Route } from 'react-router-dom/cjs/react-router-dom.min';
+import { Route, Routes } from 'react-router-dom';
 
 const HomePage = lazy(() => import('Pages/Home/Home'));
 const RegisterPage = lazy(() => import('Pages/Register/Register'));
