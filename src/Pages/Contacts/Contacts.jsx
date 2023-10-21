@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
+import { FaUserPlus } from 'react-icons/fa';
 import { fetchContacts } from 'redux/constacts/operations';
 import { selectError, selectIsLoading } from 'redux/constacts/selectors';
 
@@ -8,14 +8,7 @@ import { Section } from '../../components/Section/Section';
 import { ContactForm } from '../../components/ContactForm/ContactForm';
 import { Filter } from '../../components/Filter/Filter';
 import { ContactList } from '../../components/ContactList/ContactList';
-import {
-  AddUserIcon,
-  Button,
-  ContactNavWrapper,
-  ContentPageContainer,
-  FilterWrapper,
-  Title,
-} from './Contacts.module';
+
 import { Modal } from 'components/Modal/Modal';
 
 const Contacts = () => {
@@ -33,18 +26,18 @@ const Contacts = () => {
   };
 
   return (
-    <ContentPageContainer>
+    <div>
       <Section>
-        <ContactNavWrapper>
-          <Title>Contacts</Title>
-          <FilterWrapper>
+        <div>
+          <h2>Contacts</h2>
+          <div>
             <Filter />
-            <Button type="button" onClick={handleOpenModal}>
-              <AddUserIcon />
+            <button type="button" onClick={handleOpenModal}>
+              <FaUserPlus />
               New Contact
-            </Button>
-          </FilterWrapper>
-        </ContactNavWrapper>
+            </button>
+          </div>
+        </div>
         {isLoading && !error && <b>Request in progress</b>}
         <ContactList />
       </Section>
@@ -58,7 +51,7 @@ const Contacts = () => {
           onCloseModal={handleOpenModal}
         ></Modal>
       )}
-    </ContentPageContainer>
+    </div>
   );
 };
 

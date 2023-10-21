@@ -1,29 +1,23 @@
 import { useAuth } from 'hooks/useAuth';
-import {
-  Logo,
-  MainNav,
-  MainNavItem,
-  MainNavLink,
-  MainNavList,
-} from './Navigation.module';
+import { NavLink } from 'react-router-dom';
 
 const Navigation = () => {
   const { isLoggedIn } = useAuth();
 
   return (
     <>
-      <Logo to="/">
+      <NavLink to="/">
         Phone<span>Book.</span>
-      </Logo>
-      <MainNav>
+      </NavLink>
+      <nav>
         {isLoggedIn && (
-          <MainNavList>
-            <MainNavItem>
-              <MainNavLink to="/contacts">Contacts</MainNavLink>
-            </MainNavItem>
-          </MainNavList>
+          <ul>
+            <li>
+              <NavLink to="/contacts">Contacts</NavLink>
+            </li>
+          </ul>
         )}
-      </MainNav>
+      </nav>
     </>
   );
 };

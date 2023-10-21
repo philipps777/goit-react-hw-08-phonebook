@@ -1,13 +1,11 @@
 import PropTypes from 'prop-types';
 
-import { SectionContainer, Title } from './Section.module';
-
 export const Section = ({ title, children }) => {
   return (
-    <SectionContainer>
-      {title && <Title>{title}</Title>}
+    <section>
+      {title && <h2>{title}</h2>}
       {children}
-    </SectionContainer>
+    </section>
   );
 };
 

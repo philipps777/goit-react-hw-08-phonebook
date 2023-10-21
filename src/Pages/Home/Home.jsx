@@ -1,11 +1,10 @@
 import { Section } from 'components/Section/Section';
-import { ContentPageContainer } from './Home.module';
 
 const Home = () => {
   return (
-    <ContentPageContainer>
+    <div>
       <Section title="Welcome to Phone Book" />
-    </ContentPageContainer>
+    </div>
   );
 };
 

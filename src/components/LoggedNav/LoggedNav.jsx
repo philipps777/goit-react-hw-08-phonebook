@@ -1,15 +1,14 @@
-import { LoggedItem, LoggedLink, LoggedList } from './Logged.module';
-
+import { NavLink } from 'react-router-dom';
 const LoggedNav = () => {
   return (
-    <LoggedList>
-      <LoggedItem>
-        <LoggedLink to="login">LogIn</LoggedLink>
-      </LoggedItem>
-      <LoggedItem>
-        <LoggedLink to="register">Register</LoggedLink>
-      </LoggedItem>
-    </LoggedList>
+    <ul>
+      <li>
+        <NavLink to="login">LogIn</NavLink>
+      </li>
+      <li>
+        <NavLink to="register">Register</NavLink>
+      </li>
+    </ul>
   );
 };
 

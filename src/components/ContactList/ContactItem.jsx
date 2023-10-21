@@ -2,15 +2,24 @@ import PropTypes from 'prop-types';
 
 import { useDispatch } from 'react-redux';
 
-import { deleteContact } from 'redux/operations';
+import { deleteContact } from 'redux/constacts/operations';
 
 import { Li, ButtonList, Phone } from './ContactList.styled';
-
+import { Notify } from 'notiflix';
 export const ContactItem = ({ id, name, phone }) => {
   const dispatch = useDispatch();
 
   const handleDeleteContact = userId => {
-    dispatch(deleteContact(userId));
+    dispatch(deleteContact(userId))
+      .unwrap()
+      .then(originalPromiseResult => {
+        Notify.success(
+          `${originalPromiseResult.name} successfully deleted from contacts`
+        );
+      })
+      .catch(() => {
+        Notify.failure("Sorry, something's wrong");
+      });
   };
 
   return (

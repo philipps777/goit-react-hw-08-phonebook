@@ -1,5 +1,5 @@
 import { Notify } from 'notiflix';
-import { Form, Input, Label, Button, LoggedLink } from './LoginForm.module';
+import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
 
@@ -28,10 +28,10 @@ const LoginForm = () => {
   };
 
   return (
-    <Form onSubmit={handleSubmit} autoComplete="off">
-      <Label>
+    <form onSubmit={handleSubmit} autoComplete="off">
+      <label>
         Email
-        <Input
+        <input
           type="email"
           name="email"
           pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/."
@@ -39,10 +39,10 @@ const LoginForm = () => {
           required
           placeholder="Enter email ..."
         />
-      </Label>
-      <Label>
+      </label>
+      <label>
         Password
-        <Input
+        <input
           type="password"
           name="password"
           pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
@@ -50,10 +50,10 @@ const LoginForm = () => {
           required
           placeholder="Enter password ..."
         />
-      </Label>
-      <Button type="submit">LogIn</Button>
-      <LoggedLink to="/register">Don`t have acount? Register</LoggedLink>
-    </Form>
+      </label>
+      <button type="submit">LogIn</button>
+      <NavLink to="/register">Don`t have acount? Register</NavLink>
+    </form>
   );
 };
 

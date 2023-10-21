@@ -1,8 +1,7 @@
 import { useDispatch } from 'react-redux';
-
+import { NavLink } from 'react-router-dom';
 import { register } from 'redux/auth/operations';
 
-import { Form, Input, Label, Button, LoggedLink } from './RegisterPage.module';
 import { Notify } from 'notiflix';
 
 const RegisterForm = () => {
@@ -31,10 +30,10 @@ const RegisterForm = () => {
   };
 
   return (
-    <Form onSubmit={handleSubmit} autoComplete="off">
-      <Label>
+    <form onSubmit={handleSubmit} autoComplete="off">
+      <label>
         Name
-        <Input
+        <input
           type="text"
           name="name"
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -42,10 +41,10 @@ const RegisterForm = () => {
           placeholder="Enter name ..."
           required
         />
-      </Label>
-      <Label>
+      </label>
+      <label>
         Email
-        <Input
+        <input
           type="email"
           name="email"
           pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/."
@@ -53,10 +52,10 @@ const RegisterForm = () => {
           placeholder="Enter email ..."
           required
         />
-      </Label>
-      <Label>
+      </label>
+      <label>
         Password
-        <Input
+        <input
           type="password"
           name="password"
           pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
@@ -64,10 +63,10 @@ const RegisterForm = () => {
           placeholder="Enter password ..."
           required
         />
-      </Label>
-      <Button type="submit">Register</Button>
-      <LoggedLink to="/login">Have acount? LogIn</LoggedLink>
-    </Form>
+      </label>
+      <button type="submit">Register</button>
+      <NavLink to="/login">Have acount? LogIn</NavLink>
+    </form>
   );
 };
 

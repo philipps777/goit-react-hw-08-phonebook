@@ -1,11 +1,12 @@
+
 import { useSelector, useDispatch } from 'react-redux';
 
-import { selectContactsList } from 'redux/selectors';
-import { addContact } from 'redux/operations';
-
+import { selectContactsList } from 'redux/constacts/selectors';
+import { addContact } from 'redux/constacts/operations';
+import { Notify } from 'notiflix';
 import { Form, FormWrapper, Button, Input } from './ContactForm.styled';
 
-export const ContactForm = () => {
+export const ContactForm = ({ onCloseModal }) => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContactsList);
 
@@ -24,6 +25,18 @@ export const ContactForm = () => {
     }
 
     dispatch(addContact({ name: formName, phone: formNumber }));
+    dispatch(addContact({ name: formName, number: formNumber.toString() }))
+      .unwrap()
+      .then(originalPromiseResult => {
+        Notify.success(
+          `${originalPromiseResult.name} successfully added to contacts`
+        );
+      })
+      .catch(() => {
+        Notify.failure("Sorry, something's wrong");
+      });
+
+    onCloseModal();
     form.reset();
   };
 

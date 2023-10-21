@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
-import { ModalContent, Overlay } from './Modal.module';
 
 export const Modal = ({ children, onCloseModal }) => {
   useEffect(() => {
@@ -24,9 +23,9 @@ export const Modal = ({ children, onCloseModal }) => {
   };
 
   return (
-    <Overlay onClick={handleBackdropClick}>
-      <ModalContent>{children}</ModalContent>
-    </Overlay>
+    <div onClick={handleBackdropClick}>
+      <div>{children}</div>
+    </div>
   );
 };
 
