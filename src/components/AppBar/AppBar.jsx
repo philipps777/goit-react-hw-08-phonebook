@@ -4,13 +4,15 @@ import Navigation from 'components/Navigation/Navigation';
 import UserMenu from 'components/UserMenu/UserMenu';
 import LoggedNav from 'components/LoggedNav/LoggedNav';
 
+import { Header } from './AppBar.styled';
+
 const AppBar = () => {
   const { isLoggedIn } = useAuth();
   return (
-    <header>
+    <Header>
       <Navigation />
       {isLoggedIn ? <UserMenu /> : <LoggedNav />}
-    </header>
+    </Header>
   );
 };
 

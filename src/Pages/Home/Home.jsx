@@ -1,10 +1,11 @@
 import { Section } from 'components/Section/Section';
+import { ContentPageContainer } from './Home.styled';
 
 const Home = () => {
   return (
-    <div>
+    <ContentPageContainer>
       <Section title="Welcome to Phone Book" />
-    </div>
+    </ContentPageContainer>
   );
 };
 

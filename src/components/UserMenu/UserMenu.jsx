@@ -1,5 +1,13 @@
 import { useDispatch } from 'react-redux';
-
+import { Image } from '@chakra-ui/image';
+import {
+  LogOutBtn,
+  // UserAvatar,
+  UserEmail,
+  UserName,
+  UserNavigarion,
+  UserWrapper,
+} from './UserMenu.styled';
 import { logOut } from 'redux/auth/operations';
 import { useAuth } from 'hooks/useAuth';
 
@@ -8,18 +16,25 @@ const UserMenu = () => {
   const { user } = useAuth();
 
   return (
-    <div>
-      <div>
+    <UserNavigarion>
+      <UserWrapper>
         <div>
-          <p>{user.name}</p>
-          <p>{user.email}</p>
+          <UserName>{user.name}</UserName>
+          <UserEmail>{user.email}</UserEmail>
         </div>
-        <div></div>
-      </div>
-      <button type="button" onClick={() => dispatch(logOut())}>
+        {/* <UserAvatar> */}
+        <Image
+          borderRadius="full"
+          boxSize="100px"
+          src="https://eshulga.github.io/GoIT-Land/img/repeta2.jpg"
+          alt="Alex Repeta"
+        />
+        {/* </UserAvatar> */}
+      </UserWrapper>
+      <LogOutBtn type="button" onClick={() => dispatch(logOut())}>
         LogOut
-      </button>
-    </div>
+      </LogOutBtn>
+    </UserNavigarion>
   );
 };
 

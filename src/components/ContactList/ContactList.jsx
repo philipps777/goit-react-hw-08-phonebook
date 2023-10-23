@@ -3,24 +3,24 @@ import { useSelector } from 'react-redux';
 import {
   selectContactsFilter,
   selectContactsList,
-} from 'redux/constacts/selectors';
+} from 'redux/contacts/selectors';
 
-import { List } from './ContactList.styled';
+import { ContactsListItem } from '../ContactListItem/ContactListItem';
 
-import { ContactItem } from './ContactItem';
+import { ContactsList } from './ContactList.styled';
 
 export const ContactList = () => {
   const contacts = useSelector(selectContactsList);
   const filter = useSelector(selectContactsFilter);
-  const visibleContacts = contacts.filter(contact =>
-    contact.name.toLowerCase().includes(filter)
-  );
+  const visibleContacts = [
+    ...contacts.filter(contact => contact.name.toLowerCase().includes(filter)),
+  ];
 
   return (
-    <List>
-      {visibleContacts.map(({ name, phone, id }) => (
-        <ContactItem key={id} id={id} name={name} phone={phone} />
+    <ContactsList>
+      {visibleContacts.map(({ name, number, id }) => (
+        <ContactsListItem key={id} id={id} name={name} number={number} />
       ))}
-    </List>
+    </ContactsList>
   );
 };

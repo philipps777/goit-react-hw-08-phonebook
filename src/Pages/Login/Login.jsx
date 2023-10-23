@@ -1,7 +1,12 @@
 import LoginForm from 'components/LoginForm/LoginForm';
+import { WrapperLogin } from './Login.Styled';
 
 const Login = () => {
-  return <LoginForm />;
+  return (
+    <WrapperLogin>
+      <LoginForm />
+    </WrapperLogin>
+  );
 };
 
 export default Login;

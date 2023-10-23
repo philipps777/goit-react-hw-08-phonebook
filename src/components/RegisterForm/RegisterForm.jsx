@@ -1,7 +1,8 @@
 import { useDispatch } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+
 import { register } from 'redux/auth/operations';
 
+import { Form, Input, Label, Button, LoggedLink } from './RegisterPage.styled';
 import { Notify } from 'notiflix';
 
 const RegisterForm = () => {
@@ -30,43 +31,43 @@ const RegisterForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} autoComplete="off">
-      <label>
+    <Form onSubmit={handleSubmit} autoComplete="off">
+      <Label>
         Name
-        <input
+        <Input
           type="text"
           name="name"
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+          // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           placeholder="Enter name ..."
           required
         />
-      </label>
-      <label>
+      </Label>
+      <Label>
         Email
-        <input
+        <Input
           type="email"
           name="email"
-          pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/."
+          // pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/."
           title="Email may contain letters, numbers, an apostrophe, and must be followed by '@' domain name '.' domain suffix. For example Taras@ukr.ua, adrian@gmail.com, JacobM3rcer@hotmail.com"
           placeholder="Enter email ..."
           required
         />
-      </label>
-      <label>
+      </Label>
+      <Label>
         Password
-        <input
+        <Input
           type="password"
           name="password"
-          pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+          // pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
           title="Password must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters. For example TgeV23592, 3Greioct."
           placeholder="Enter password ..."
           required
         />
-      </label>
-      <button type="submit">Register</button>
-      <NavLink to="/login">Have acount? LogIn</NavLink>
-    </form>
+      </Label>
+      <Button type="submit">Register</Button>
+      <LoggedLink to="/login">Have acount? LogIn</LoggedLink>
+    </Form>
   );
 };
 
